@@ -1,12 +1,12 @@
 package com.taskgpb.test;
 
-import com.taskgpb.test.Common.DTOs.UserInfoResponse;
-import com.taskgpb.test.Common.DTOs.VkUserInfoRequest;
-import com.taskgpb.test.Common.Exceptions.ApiResponseException;
-import com.taskgpb.test.Common.Exceptions.GroupMembershipNotFoundException;
-import com.taskgpb.test.Common.Exceptions.UserNotFoundException;
-import com.taskgpb.test.ApiVkIntegration.UserInfo;
-import com.taskgpb.test.ApiVkIntegration.VkApiService;
+import com.taskgpb.intern.Common.DTOs.UserInfoResponse;
+import com.taskgpb.intern.Common.DTOs.VkUserInfoRequest;
+import com.taskgpb.intern.Common.Exceptions.ApiResponseException;
+import com.taskgpb.intern.Common.Exceptions.GroupMembershipNotFoundException;
+import com.taskgpb.intern.Common.Exceptions.UserNotFoundException;
+import com.taskgpb.intern.ApiVkIntegration.UserInfo;
+import com.taskgpb.intern.ApiVkIntegration.VkApiService;
 import org.apache.camel.ProducerTemplate;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

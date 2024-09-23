@@ -2,24 +2,19 @@ services:
   vk_api_service:
     build: .
     ports:
-      - "8081:8081"
+      - "8084:8081"
+    depends_on:
+      - main_db
+      - redis
     environment:
-      - spring.application.name=VK_API_service
-      - server.port=8081
-      - app.vk.api.url=https://api.vk.com/method
-      - app.vk.api.version=5.199
       - SPRING_DATASOURCE_URL=jdbc:postgresql://main_db:5432/main_db
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_DATA_REDIS_HOST=redis
       - SPRING_DATA_REDIS_PORT=6379
-    networks:
-      - vk_network
-    depends_on:
-      - main_db
 
   main_db:
-    image: postgres:latest
+    image: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=main_db

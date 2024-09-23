@@ -2,9 +2,9 @@ package com.taskgpb.test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import com.taskgpb.test.Common.SecurityPackage.CustomUser;
-import com.taskgpb.test.Common.SecurityPackage.CustomUserDetailsService;
-import com.taskgpb.test.Common.SecurityPackage.UserRepository;
+import com.taskgpb.intern.SecurityPackage.Auth.CustomUser;
+import com.taskgpb.intern.SecurityPackage.Auth.CustomUserDetailsService;
+import com.taskgpb.intern.SecurityPackage.Auth.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
