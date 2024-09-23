@@ -1,16 +1,27 @@
-Разработка системы взаимодействия с VK API
+# Разработка системы взаимодействия с VK API
 
-Система включает в себя такие основные компоненты:
-  - Spring Web
-  - Basic Auth & Registration (Spring Security 6)
-  - Кэширование с помощью Redis
-  - Сервис Интеграции с Вк API
-  - OpenAPI документация
+## Описание
+Система включает в себя следующие основные компоненты:
+- **Spring Web**
+- **Basic Auth & Registration** (Spring Security 6)
+- **Кэширование** с помощью Redis
+- **Сервис интеграции** с VK API
+- **OpenAPI документация**
+- **Контейнеризация** с помощью Docker
 
-Пример формы логина: ![image](https://github.com/user-attachments/assets/897d48a9-4e7c-4fb2-bd3b-7077c1a762cc)
+## Формы
+### Форма логина
+![Форма логина](https://github.com/user-attachments/assets/897d48a9-4e7c-4fb2-bd3b-7077c1a762cc)
 
-Пример формы регистрации при отсутствии существующего аккаунта: ![image](https://github.com/user-attachments/assets/68513798-c9c2-48f2-96a0-dcffc1e861ac)
+### Форма регистрации
+При отсутствии существующего аккаунта:
+![Форма регистрации](https://github.com/user-attachments/assets/68513798-c9c2-48f2-96a0-dcffc1e861ac)
 
-Пример успешного ответа: ![image](https://github.com/user-attachments/assets/77782d16-588d-4b86-ae1c-e452c6a1104b)
+### Форма для отправки запроса
+![Форма для отправки запроса](https://github.com/user-attachments/assets/8dd2cee8-4972-4179-a996-614857cb9962)
 
-Все методы контроллеров задокументированы по адресу /swagger-ui/index.html
+## Пример успешного ответа
+![Пример успешного ответа](https://github.com/user-attachments/assets/77782d16-588d-4b86-ae1c-e452c6a1104b)
+
+## Документация
+Все методы контроллеров задокументированы по адресу: [Swagger UI](http://localhost:8081/swagger-ui/index.html)
