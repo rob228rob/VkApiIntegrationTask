@@ -23,4 +23,4 @@
 ![Пример успешного ответа](https://github.com/user-attachments/assets/77782d16-588d-4b86-ae1c-e452c6a1104b)
 
 ## Документация
-Все методы контроллеров задокументированы по адресу: [Swagger UI](http://localhost:8081/swagger-ui/index.html)
+Все методы контроллеров задокументированы по адресу: /swagger-ui/index.html
