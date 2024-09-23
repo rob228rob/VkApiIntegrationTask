@@ -14,7 +14,6 @@
 ![Форма логина](https://github.com/user-attachments/assets/897d48a9-4e7c-4fb2-bd3b-7077c1a762cc)
 
 ### Форма регистрации
-При отсутствии существующего аккаунта:
 ![Форма регистрации](https://github.com/user-attachments/assets/68513798-c9c2-48f2-96a0-dcffc1e861ac)
 
 ### Форма для отправки запроса
