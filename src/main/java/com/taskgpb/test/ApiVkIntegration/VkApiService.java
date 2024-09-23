@@ -1,15 +1,13 @@
-package com.taskgpb.test.apiVkIntegration;
+package com.taskgpb.test.ApiVkIntegration;
 
-import com.taskgpb.test.apiVkIntegration.DTOs.UserInfoResponse;
-import com.taskgpb.test.apiVkIntegration.DTOs.VkUserInfoRequest;
-import com.taskgpb.test.apiVkIntegration.Exceptions.ApiResponseException;
-import com.taskgpb.test.apiVkIntegration.Exceptions.GroupMembershipNotFoundException;
-import com.taskgpb.test.apiVkIntegration.Exceptions.UserNotFoundException;
-import io.swagger.v3.oas.annotations.Operation;
+import com.taskgpb.test.Common.DTOs.UserInfoResponse;
+import com.taskgpb.test.Common.DTOs.VkUserInfoRequest;
+import com.taskgpb.test.Common.Exceptions.GroupMembershipNotFoundException;
+import com.taskgpb.test.Common.Exceptions.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.camel.ProducerTemplate;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -33,9 +31,11 @@ public class VkApiService {
 
     private final RestTemplate restTemplate;
 
+    @Cacheable(cacheNames = "userInfoResponse", key = "#request.userId + '_' + accessToken" )
     public UserInfoResponse getUserInfoResponse(
             VkUserInfoRequest request,
             String accessToken) throws UserNotFoundException, GroupMembershipNotFoundException {
+        log.error("token : {}", accessToken);
         UserInfo userInfo = callVkApiToGetUserInfo(request.getUserId(), accessToken);
         Boolean isMember = callVkApiToCheckMembership(request.getUserId(), request.getGroupId(), accessToken);
 

@@ -1,9 +1,8 @@
-package com.taskgpb.test.apiVkIntegration.DTOs;
+package com.taskgpb.test.Common.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter

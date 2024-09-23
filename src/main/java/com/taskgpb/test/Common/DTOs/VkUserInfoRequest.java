@@ -1,4 +1,4 @@
-package com.taskgpb.test.apiVkIntegration.DTOs;
+package com.taskgpb.test.Common.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
@@ -12,7 +12,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class VkUserInfoRequest {
-    @NotNull(message = "Group ID cannot be null")
+
+    @NotNull(message = "User ID cannot be null")
     @JsonProperty("user_id")
     private long userId;
 

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+<h2>Welcome. Now you can access the API</h2>
+
+<form id="user-info-form">
+    <div class="form-group">
+        <label for="serviceToken">VK Service Token</label>
+        <input type="text" id="serviceToken" name="serviceToken" required>
+    </div>
+    <div class="form-group">
+        <label for="userId">User ID</label>
+        <input type="text" id="userId" name="userId" required>
+    </div>
+    <div class="form-group">
+        <label for="groupId">Group ID</label>
+        <input type="text" id="groupId" name="groupId" required>
+    </div>
+    <button type="submit">Get User Info</button>
+</form>
+
+<div id="response-message" style="display: none;">
+    <h3>Response:</h3>
+    <pre id="response-text"></pre>
+</div>
+
+<script>
+    document.getElementById('user-info-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const serviceToken = document.getElementById('serviceToken').value;
+        const userId = document.getElementById('userId').value;
+        const groupId = document.getElementById('groupId').value;
+
+        const requestBody = {
+            user_id: userId,
+            group_id: groupId
+        };
+
+        fetch('/api/user-info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'vk_service_token': serviceToken
+            },
+            body: JSON.stringify(requestBody)
+        })
+            .then(response => {
+                return response.json().then(data => {
+                    if (response.ok) {
+                        document.getElementById('response-message').style.display = 'block';
+                        document.getElementById('response-text').textContent = JSON.stringify(data, null, 2);
+                    } else {
+                        document.getElementById('response-message').style.display = 'block';
+                        document.getElementById('response-text').textContent = JSON.stringify(data.error || 'An error occurred', null, 2);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('response-message').style.display = 'block';
+                document.getElementById('response-text').textContent = 'An error occurred';
+            });
+    });
+</script>
+</body>
+</html>

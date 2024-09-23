@@ -1,4 +1,4 @@
-package com.taskgpb.test.apiVkIntegration.Exceptions;
+package com.taskgpb.test.Common.Exceptions;
 
 import lombok.Getter;
 

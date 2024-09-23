@@ -1,4 +1,4 @@
-package com.taskgpb.test.apiVkIntegration;
+package com.taskgpb.test.ApiVkIntegration;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

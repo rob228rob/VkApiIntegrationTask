@@ -1,4 +1,4 @@
-package com.taskgpb.test.Configs;
+package com.taskgpb.test.Common.Configs;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

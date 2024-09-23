@@ -1,10 +1,10 @@
-package com.taskgpb.test.apiVkIntegration;
+package com.taskgpb.test.ApiVkIntegration;
 
-import com.taskgpb.test.apiVkIntegration.DTOs.ErrorResponse;
-import com.taskgpb.test.apiVkIntegration.DTOs.UserInfoResponse;
-import com.taskgpb.test.apiVkIntegration.DTOs.VkUserInfoRequest;
-import com.taskgpb.test.apiVkIntegration.Exceptions.GroupMembershipNotFoundException;
-import com.taskgpb.test.apiVkIntegration.Exceptions.UserNotFoundException;
+import com.taskgpb.test.Common.DTOs.ErrorResponse;
+import com.taskgpb.test.Common.DTOs.UserInfoResponse;
+import com.taskgpb.test.Common.DTOs.VkUserInfoRequest;
+import com.taskgpb.test.Common.Exceptions.GroupMembershipNotFoundException;
+import com.taskgpb.test.Common.Exceptions.UserNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -15,7 +15,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,14 +22,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
-public class ApiController {
+public class VkApiIntegrationController {
 
     private final VkApiService vkService;
-
-    @GetMapping
-    public String healthCheck() {
-        return "OK";
-    }
 
     @PostMapping("/user-info")
     @Operation(summary = "Получить информацию о пользователе VK",
@@ -38,14 +32,15 @@ public class ApiController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Успешный ответ",
                     content = @Content(schema = @Schema(implementation = UserInfoResponse.class))),
-            @ApiResponse(responseCode = "404", description = "Пользователь не найден",
+            @ApiResponse(responseCode = "404", description = "Пользователь или сообщество не найдены",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
     })
     public ResponseEntity<?> getUserInfoFromVkApi(
             @RequestHeader("vk_service_token")
-            @Parameter(description = "Сервисный токен VK", required = true) String serviceToken,
+            @Parameter(description = "Сервис токен VK", required = true) String serviceToken,
             @RequestBody @Valid VkUserInfoRequest request) {
         try {
+            log.error("service token : " + serviceToken + " ; user_id : " + request.getUserId());
             UserInfoResponse response = vkService.getUserInfoResponse(request, serviceToken);
             return ResponseEntity.ok(response);
         } catch (UserNotFoundException | GroupMembershipNotFoundException e) {
