@@ -1,15 +1,16 @@
 package com.taskgpb.test;
 
-import com.taskgpb.test.apiVkIntegration.DTOs.UserInfoResponse;
-import com.taskgpb.test.apiVkIntegration.DTOs.VkUserInfoRequest;
-import com.taskgpb.test.apiVkIntegration.Exceptions.ApiResponseException;
-import com.taskgpb.test.apiVkIntegration.UserInfo;
-import com.taskgpb.test.apiVkIntegration.VkApiService;
+import com.taskgpb.test.Common.DTOs.UserInfoResponse;
+import com.taskgpb.test.Common.DTOs.VkUserInfoRequest;
+import com.taskgpb.test.Common.Exceptions.ApiResponseException;
+import com.taskgpb.test.Common.Exceptions.GroupMembershipNotFoundException;
+import com.taskgpb.test.Common.Exceptions.UserNotFoundException;
+import com.taskgpb.test.ApiVkIntegration.UserInfo;
+import com.taskgpb.test.ApiVkIntegration.VkApiService;
 import org.apache.camel.ProducerTemplate;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+@SpringBootTest(properties = "spring.config.name=application-test")
 public class VkApiServiceTest {
 
     @InjectMocks
@@ -27,11 +28,11 @@ public class VkApiServiceTest {
     @Mock
     private ProducerTemplate producerTemplate;
 
-    @Value("${app.vk.token}")
+    @Value("${app.vk.test.token}")
     private String testValidVkToken;
 
     @Test
-    public void testGetUserInfoResponse() {
+    public void testGetUserInfoResponse() throws UserNotFoundException, GroupMembershipNotFoundException {
 
         UserInfo mockUserInfo = new UserInfo("Иванов", "Иван", "Иванович");
         when(producerTemplate.requestBody(anyString(), isNull(), eq(UserInfo.class))).thenReturn(mockUserInfo);

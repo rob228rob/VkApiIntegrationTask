@@ -2,9 +2,9 @@ package com.taskgpb.test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import com.taskgpb.test.SecurityPackage.CustomUser;
-import com.taskgpb.test.SecurityPackage.CustomUserDetailsService;
-import com.taskgpb.test.SecurityPackage.UserRepository;
+import com.taskgpb.test.Common.SecurityPackage.CustomUser;
+import com.taskgpb.test.Common.SecurityPackage.CustomUserDetailsService;
+import com.taskgpb.test.Common.SecurityPackage.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -13,7 +13,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 public class CustomUserDetailsServiceTest {

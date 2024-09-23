@@ -35,18 +35,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.camel.springboot/camel-spring-boot-starter -->
-<!--		<dependency>-->
-<!--			<groupId>org.apache.camel.springboot</groupId>-->
-<!--			<artifactId>camel-spring-boot-starter</artifactId>-->
-<!--			<version>4.8.0</version>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.apache.camel</groupId>-->
-<!--			<artifactId>camel-http</artifactId>-->
-<!--			<version>4.8.0</version>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jackson</artifactId>
@@ -58,9 +46,38 @@
 			<version>2.5.0</version>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.vk.api/sdk -->
+		<dependency>
+			<groupId>com.vk.api</groupId>
+			<artifactId>sdk</artifactId>
+			<version>1.0.16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<version>3.1.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
